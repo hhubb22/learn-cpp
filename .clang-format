@@ -1,0 +1,140 @@
+Language: Cpp
+
+# 基础风格：选择GNU作为起点，因为它最接近现代snake_case趋势
+BasedOnStyle: GNU
+
+# 缩进和空格设置
+IndentWidth: 2              # 2个空格缩进，现代标准
+UseTab: Never               # 从不使用tab，确保一致性
+TabWidth: 2                 # 如果遇到tab，按2个空格处理
+
+# 行长度 - 现代显示器支持更长的行
+ColumnLimit: 100            # 100字符限制，比传统80字符更实用
+
+# 大括号风格 - 改进GNU默认设置
+BreakBeforeBraces: Allman   # 保持GNU风格的Allman大括号风格
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+# 指针和引用对齐 - 与现代C++标准一致
+PointerAlignment: Left      # int* ptr, 与标准库一致
+ReferenceAlignment: Left    # int& ref
+DerivePointerAlignment: false
+
+# 函数和参数格式
+AllowShortFunctionsOnASingleLine: Empty  # 只允许空函数单行
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+
+# 参数和初始化列表
+BinPackArguments: false     # 每个参数单独一行，提高可读性
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+
+# 构造函数初始化列表
+BreakConstructorInitializers: BeforeColon
+ConstructorInitializerIndentWidth: 2
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+# 现代C++特性支持
+Standard: Latest            # 支持最新C++标准
+Cpp11BracedListStyle: true  # 使用C++11大括号初始化风格
+
+# 包含文件排序 - 符合LLVM项目实践
+SortIncludes: CaseInsensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  # 1. 项目内头文件
+  - Regex: '^".*"'
+    Priority: 1
+  # 2. 系统C++标准库
+  - Regex: '^<[a-z_]+>'
+    Priority: 2
+  # 3. 其他系统头文件
+  - Regex: '^<.*>'
+    Priority: 3
+
+# 空行控制
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: false
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+# 对齐设置
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: AcrossEmptyLines
+AlignEscapedNewlines: Left
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: true
+
+# 换行控制
+AllowAllConstructorInitializersOnNextLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BreakInheritanceList: BeforeColon
+BreakStringLiterals: true
+
+# 空格控制
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# 注释格式
+ReflowComments: true
+CommentPragmas: '^ IWYU pragma:'
+
+# 宏定义
+IndentPPDirectives: BeforeHash
+
+# 命名空间
+NamespaceIndentation: None
+CompactNamespaces: false
+FixNamespaceComments: true
+
+# 访问修饰符
+AccessModifierOffset: -2
+IndentAccessModifiers: false
+
+# 其他现代化设置
+InsertTrailingCommas: None
+RemoveBracesLLVM: false
+SeparateDefinitionBlocks: Always
+SpaceAroundPointerQualifiers: Default
+
+# 实验性功能（谨慎使用）
+ExperimentalAutoDetectBinPacking: false
+
+# 确保与现代IDE兼容
+DisableFormat: false
+SortUsingDeclarations: true
